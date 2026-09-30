@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PAW.Models.DTO.SupplierDTO>
+
+@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<div class="container-fluid mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Lista de Proveedores</h1>
+        <button type="button" class="btn btn-success">Agregar Proveedor</button>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning">
+            No hay proveedores disponibles.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Proveedor</th>
+                        <th>Contacto</th>
+                        <th>Cargo</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Ciudad</th>
+                        <th>País</th>
+                        <th>Última modificación</th>
+                        <th>Modificado por</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.SupplierId</td>
+                        <td>@item.SupplierName</td>
+                        <td>@item.ContactName</td>
+                        <td>@item.ContactTitle</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Address</td>
+                        <td>@item.City</td>
+                        <td>@item.Country</td>
+                        <td>@item.LastModified?.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@item.ModifiedBy</td>
+                        <td class="text-nowrap">
+                            <button type="button" class="btn btn-sm btn-warning">Editar</button>
+                            <button type="button" class="btn btn-sm btn-info">Detalles</button>
+                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</div>
