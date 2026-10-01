@@ -145,3 +145,9 @@ D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\ref
 D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\TareaPAW.pdb
 D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\TareaPAW.genruntimeconfig.cache
 D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\ref\TareaPAW.dll
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\TareaPAW.sourcelink.json
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\U\SC-701 Programación avanzada en Web\TareaPAW\TareaPAW\obj\Debug\net8.0\TareaPAW.MvcApplicationPartsAssemblyInfo.cs

@@ -38,7 +38,15 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserActionService, UserActionService>();
 builder.Services.AddScoped<IUserRoleService, UserRoleService>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+    options.DocInclusionPredicate((docName, api) =>
+        api.RelativePath != null && api.RelativePath.StartsWith("api/")));
+
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 if (!app.Environment.IsDevelopment())
 {

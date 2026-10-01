@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TareaPAW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3895e75af15af3af24c307e306289b0c7e1659c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TareaPAW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TareaPAW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
