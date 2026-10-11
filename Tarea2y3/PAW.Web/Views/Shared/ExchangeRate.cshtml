@@ -1,0 +1,53 @@
+@*
+    ExchangeRate.cshtml  (vista parcial)
+    ----------------------------------------------------------------
+    - NO tiene @model: el controller ya no le manda datos.
+    - Es solo el "molde" HTML. Los números los llena JavaScript
+      (función loadExchangeRate() en wwwroot/js/site.js) usando los id.
+    - Se incluye una sola vez en _Layout.cshtml, por eso aparece
+      en todas las páginas, flotando arriba a la derecha.
+*@
+
+<aside id="exchange-rate-widget" class="er-widget is-loading" aria-label="Tipo de cambio">
+
+    <div class="er-header">
+        <span class="er-title">💱 Tipo de cambio</span>
+        <div class="er-actions">
+            <button type="button" id="er-refresh" class="er-btn" title="Actualizar">⟳</button>
+            <button type="button" id="er-toggle" class="er-btn" title="Minimizar / mostrar">–</button>
+        </div>
+    </div>
+
+    <div class="er-body">
+
+        <div class="er-section">
+            <div class="er-currency">🇺🇸 Dólar</div>
+            <div class="er-row">
+                <span>Compra</span>
+                <strong id="er-dolar-compra">—</strong>
+            </div>
+            <div class="er-row">
+                <span>Venta</span>
+                <strong id="er-dolar-venta">—</strong>
+            </div>
+        </div>
+
+        <div class="er-section">
+            <div class="er-currency">🇪🇺 Euro</div>
+            <div class="er-row">
+                <span>En colones</span>
+                <strong id="er-euro-colones">—</strong>
+            </div>
+            <div class="er-row">
+                <span>En dólares</span>
+                <strong id="er-euro-dolares">—</strong>
+            </div>
+        </div>
+
+        <div class="er-footer">
+            <span>BCCR · <span id="er-fecha">—</span></span>
+            <span id="er-status">Cargando…</span>
+        </div>
+    </div>
+
+</aside>

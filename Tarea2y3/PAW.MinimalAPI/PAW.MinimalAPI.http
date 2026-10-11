@@ -1,0 +1,48 @@
+# Archivo para probar la Minimal API desde Visual Studio
+# (clic en "Send request" arriba de cada bloque).
+@host = https://localhost:7090
+
+### 1. Listar todas las tareas
+GET {{host}}/tasks
+Accept: application/json
+
+### 2. Ver una tarea por Id
+GET {{host}}/tasks/1
+
+### 3. Filtrar por estado
+GET {{host}}/tasks/status/Pendiente
+
+### 4. Crear una tarea
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+  "name": "Estudiar Minimal API",
+  "description": "Repasar MapGet, MapPost, MapPut, MapPatch y MapDelete",
+  "status": "Pendiente",
+  "dueDate": "2026-10-20T00:00:00",
+  "modifiedBy": "Engel"
+}
+
+### 5. Editar una tarea completa (PUT)
+PUT {{host}}/tasks/1
+Content-Type: application/json
+
+{
+  "name": "Configurar PAW.MinimalAPI (editada)",
+  "description": "Descripción nueva",
+  "status": "En progreso",
+  "dueDate": "2026-10-15T00:00:00",
+  "modifiedBy": "Engel"
+}
+
+### 6. Cambiar solo el estado (PATCH)
+PATCH {{host}}/tasks/3
+Content-Type: application/json
+
+{
+  "status": "Completada"
+}
+
+### 7. Borrar una tarea
+DELETE {{host}}/tasks/4

@@ -1,0 +1,23 @@
+@model TaskDTO
+@{
+    ViewData["Title"] = "Editar tarea";
+}
+
+<div class="tasks-page mt-4">
+    <h2>Editar tarea #@Model.Id</h2>
+
+    <div class="card shadow-sm" style="max-width: 720px;">
+        <div class="card-body">
+            <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+                <partial name="_TaskForm" model="Model" />
+
+                <button type="submit" class="btn btn-warning">Guardar cambios</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

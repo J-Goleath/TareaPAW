@@ -1,0 +1,11 @@
+@model string?
+@* Vista parcial: pinta el estado de la tarea como una "pastilla" de color. *@
+@{
+    var css = Model switch
+    {
+        "Completada" => "bg-success",
+        "En progreso" => "bg-warning text-dark",
+        _ => "bg-secondary"
+    };
+}
+<span class="badge rounded-pill @css">@(Model ?? "Sin estado")</span>

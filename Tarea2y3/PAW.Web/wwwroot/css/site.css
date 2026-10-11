@@ -1,0 +1,119 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* =====================================================================
+   Tarjeta flotante de TIPO DE CAMBIO (Views/Shared/ExchangeRate.cshtml)
+   ===================================================================== */
+.er-widget {
+  position: fixed;          /* flota: no se mueve al hacer scroll       */
+  top: 72px;                /* justo debajo de la barra de navegación   */
+  right: 16px;              /* pegada a la derecha                      */
+  width: 240px;
+  z-index: 1050;            /* por encima del contenido de la página    */
+  color: #f8fafc;
+  background: linear-gradient(145deg, #0f766e 0%, #134e4a 100%);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .28);
+  font-size: .85rem;
+  overflow: hidden;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.er-widget:hover { transform: translateY(-2px); }
+
+.er-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, .15);
+}
+
+.er-title { font-weight: 600; letter-spacing: .2px; }
+
+.er-actions { display: flex; gap: 4px; }
+
+.er-btn {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, .15);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.er-btn:hover { background: rgba(255, 255, 255, .3); }
+
+.er-body { padding: 8px 12px 10px; }
+
+.er-section { padding: 6px 0; }
+.er-section + .er-section { border-top: 1px solid rgba(255, 255, 255, .15); }
+
+.er-currency {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  opacity: .8;
+  margin-bottom: 2px;
+}
+
+.er-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 0;
+}
+
+.er-row strong { font-variant-numeric: tabular-nums; font-size: .95rem; }
+
+.er-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 6px;
+  font-size: .7rem;
+  opacity: .75;
+}
+
+/* Minimizada: solo se ve el encabezado */
+.er-widget.is-collapsed .er-body { display: none; }
+
+/* Mientras carga, los números se ven tenues */
+.er-widget.is-loading .er-row strong { opacity: .4; }
+
+/* Si hubo error, cambia a rojo */
+.er-widget.has-error { background: linear-gradient(145deg, #b91c1c 0%, #7f1d1d 100%); }
+
+/* Pantallas pequeñas (celular): más angosta */
+@media (max-width: 576px) {
+  .er-widget { width: 200px; right: 8px; top: 64px; font-size: .78rem; }
+}
+
+/* =====================================================================
+   Pantalla de Tasks
+   ===================================================================== */
+.tasks-page { padding-right: 260px; }   /* deja espacio a la tarjeta flotante */
+
+@media (max-width: 992px) {
+  .tasks-page { padding-right: 0; }
+}
