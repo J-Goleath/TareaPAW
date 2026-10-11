@@ -1,0 +1,87 @@
+@model IEnumerable<TaskDTO>
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="tasks-page mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0">Tasks</h2>
+            <small class="text-muted">Datos servidos por PAW.MinimalAPI</small>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">+ Nueva tarea</a>
+    </div>
+
+    @* Mensajes que manda el controller después de crear/editar/borrar *@
+    @if (TempData["Success"] is string ok)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @ok
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    @if (TempData["Error"] is string err)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @err
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Fecha límite</th>
+                            <th>Modificada por</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var task in Model)
+                            {
+                                <tr>
+                                    <td>@task.Id</td>
+                                    <td><strong>@task.Name</strong></td>
+                                    <td>@task.Description</td>
+                                    <td><partial name="_StatusBadge" model="task.Status" /></td>
+                                    <td>@task.DueDate?.ToString("dd/MM/yyyy")</td>
+                                    <td>@task.ModifiedBy</td>
+                                    <td class="text-center text-nowrap">
+                                        <a asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-info">Ver</a>
+                                        <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-warning">Editar</a>
+
+                                        @if (task.Status != "Completada")
+                                        {
+                                            @* Este botón usa PATCH en la API (solo cambia el estado) *@
+                                            <form asp-action="Complete" asp-route-id="@task.Id" method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-sm btn-success" title="Marcar completada">✓</button>
+                                            </form>
+                                        }
+
+                                        <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Borrar</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" class="text-center text-muted py-4">No hay tareas.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
